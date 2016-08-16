@@ -88,42 +88,42 @@ describe('Perfect Audience', function() {
       });
     });
 
-    describe('#viewedProduct', function() {
+    describe('#productViewed', function() {
       beforeEach(function() {
         analytics.stub(window._pq, 'push');
       });
 
       it('should send a track and a trackProduct with product ID', function() {
-        analytics.track('Viewed Product', {
+        analytics.track('Product Viewed', {
           id: '507f1f77bcf86cd799439011',
           sku: '45790-32',
           name: 'Monopoly: 3rd Edition',
           price: 18.99,
           category: 'Games'
         });
-        analytics.called(window._pq.push, ['track', 'Viewed Product']);
+        analytics.called(window._pq.push, ['track', 'Product Viewed']);
         analytics.called(window._pq.push, ['trackProduct', '507f1f77bcf86cd799439011']);
       });
 
       it('should send a track and a trackProduct with product SKU, if there is not product ID', function() {
-        analytics.track('Viewed Product', {
+        analytics.track('Product Viewed', {
           sku: '45790-32',
           name: 'Monopoly: 3rd Edition',
           price: 18.99,
           category: 'Games'
         });
-        analytics.called(window._pq.push, ['track', 'Viewed Product']);
+        analytics.called(window._pq.push, ['track', 'Product Viewed']);
         analytics.called(window._pq.push, ['trackProduct', '45790-32']);
       });
     });
 
-    describe('#completedOrder', function() {
+    describe('#orderCompleted', function() {
       beforeEach(function() {
         analytics.stub(window._pq, 'push');
       });
 
       it('should send event and orderId, revenue properties', function() {
-        analytics.track('Completed Order', {
+        analytics.track('Order Completed', {
           orderId: '12345',
           total: 30,
           revenue: 25,
@@ -151,7 +151,7 @@ describe('Perfect Audience', function() {
             }
           ]
         });
-        analytics.called(window._pq.push, ['track', 'Completed Order', { orderId: '12345', revenue: 30 }]);
+        analytics.called(window._pq.push, ['track', 'Order Completed', { orderId: '12345', revenue: 30 }]);
       });
     });
   });
