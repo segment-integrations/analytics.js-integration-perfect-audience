@@ -95,7 +95,7 @@ describe('Perfect Audience', function() {
 
       it('should send a track and a trackProduct with product ID', function() {
         analytics.track('Product Viewed', {
-          id: '507f1f77bcf86cd799439011',
+          product_id: '507f1f77bcf86cd799439011',
           sku: '45790-32',
           name: 'Monopoly: 3rd Edition',
           price: 18.99,
@@ -124,7 +124,7 @@ describe('Perfect Audience', function() {
 
       it('should send event and orderId, revenue properties', function() {
         analytics.track('Order Completed', {
-          orderId: '12345',
+          order_id: '12345',
           total: 30,
           revenue: 25,
           shipping: 3,
